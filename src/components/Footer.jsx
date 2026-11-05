@@ -6,7 +6,7 @@ export default function Footer() {
   const { lang } = useLang();
   const year = new Date().getFullYear();
   return (
-    <footer className="footer">
+    <footer className="footer" id="site-footer">
       <div className="shell">
         <div className="footer-top">
           <div>
@@ -28,6 +28,11 @@ export default function Footer() {
               <a href="#curriculum">{lang === 'zh' ? '课程' : 'Curriculum'}</a>
               <a href="#gallery">{lang === 'zh' ? '影像' : 'Gallery'}</a>
               <a href="#download">{lang === 'zh' ? '下载' : 'Download'}</a>
+            </div>
+            <div className="footer-col">
+              <span className="label">{pick(FOOTER.contactLabel, lang)}</span>
+              <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
+              <span className="footer-note">{pick(FOOTER.contactNote, lang)}</span>
             </div>
           </div>
         </div>

@@ -6,7 +6,8 @@ export const SITE = {
   repo: 'https://github.com/Solar-CV/AscentApp',
   releases: 'https://github.com/Solar-CV/AscentApp/releases/latest',
   privacy: 'privacy.html',
-  version: '0.26.3',
+  email: 'support@ascentroam.com',
+  version: '0.26.7',
   size: '30 MB',
 };
 
@@ -30,7 +31,7 @@ export const HERO = {
   ),
   primary: B('下载 Android 版', 'Download for Android'),
   secondary: B('看看界面', 'See the app'),
-  meta: [B('v0.26.3', 'v0.26.3')],
+  meta: [B(`v${SITE.version}`, `v${SITE.version}`)],
   coords: '27°59′17″N 86°55′31″E',
   place: B('珠穆朗玛 · 日出', 'Everest · Sunrise'),
   legend: B('照片 → 线场 · 96 列 × 4 档', 'PHOTO → FIELD · 96 × 4'),
@@ -344,7 +345,7 @@ export const DOWNLOAD = {
   primary: B('前往 GitHub Releases', 'Open GitHub Releases'),
   secondary: B('查看源码', 'Read the source'),
   specs: [
-    { k: B('版本', 'VERSION'), v: '0.26.3' },
+    { k: B('版本', 'VERSION'), v: SITE.version },
     { k: B('系统', 'ANDROID'), v: '8.0+ / API 26' },
     { k: B('架构', 'ABI'), v: 'arm64-v8a' },
     { k: B('体积', 'SIZE'), v: '≈ 30 MB' },
@@ -357,6 +358,8 @@ export const DOWNLOAD = {
 export const FOOTER = {
   appLabel: B('应用', 'App'),
   sectionsLabel: B('章节', 'Sections'),
+  contactLabel: B('联系', 'Contact'),
+  contactNote: B('支持、反馈与隐私请求', 'Support, feedback and privacy requests'),
   tagline: B('一份高海拔野外手册。', 'A field manual for high altitude.'),
   links: [
     { href: SITE.repo, label: 'GitHub' },

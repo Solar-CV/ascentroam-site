@@ -1048,6 +1048,8 @@ html[data-theme='dark'] .gal-media img { filter: grayscale(1) contrast(1.05) bri
   transition: color 0.2s;
 }
 .footer-col a:hover { color: var(--blue); }
+/* 联系方式下方的一行说明：比链接小一号、用弱色，不抢邮箱本身 */
+.footer-note { max-width: 200px; font-size: 10.5px; line-height: 1.6; color: var(--muted); }
 .footer-bottom {
   margin-top: 58px; padding-top: 18px;
   border-top: 1px solid var(--rule);
