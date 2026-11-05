@@ -1,0 +1,21 @@
+# AscentRoam
+
+> AscentRoam (登攀) is an offline high-altitude mountaineering and trekking curriculum for Android. Learning progress is expressed as altitude: 3,200 m at the start, 8,848 m at the end of the route.
+
+## What it contains
+- 91 lessons in 10 units: 6 alpine units (69 lessons) and 4 trekking units (22 lessons)
+- 1,563 questions in 8 formats, with spaced review (0/1/3/7/16/35 days)
+- 35 long-form field notes, filtered by track
+- 40 achievements, each a real-time 3D badge
+- 38 target peaks and routes: 30 alpine peaks up to all fourteen 8,000ers, 8 trekking routes
+- 10 languages: zh-CN, zh-TW, en, ja, de, fr, es, it, ru, sv
+- Fully offline; no account required
+
+## Limits
+The app covers theory and awareness only. It is not a guide, not medical advice, and not a guarantee of a summit. Ice, rope, climbing and rescue skills require a certified instructor and supervised field practice.
+
+## Download
+https://github.com/Solar-CV/AscentApp/releases/latest
+
+## Source
+https://github.com/Solar-CV/AscentApp

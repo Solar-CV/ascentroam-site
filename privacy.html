@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem('ar-theme');
+          if (t === 'dark' || t === 'light') document.documentElement.dataset.theme = t;
+        } catch (e) {}
+
+        // Precedence: explicit user choice > Cloudflare country hint > browser.
+        var saved = null;
+        try {
+          saved = localStorage.getItem('ar-lang');
+        } catch (e) {}
+        var lang = saved === 'zh' || saved === 'en' ? saved : window.__AR_LANG__;
+        if (lang !== 'zh' && lang !== 'en') {
+          lang = /^zh/i.test(navigator.language || '') ? 'zh' : 'en';
+        }
+        document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+      })();
+    </script>
+    <title>Privacy policy — AscentRoam</title>
+    <meta name="description" content="How AscentRoam handles account and learning data: what we collect, where it is stored, how long it is kept, and how to delete your account." />
+    <meta name="theme-color" content="#f7f7f4" />
+    <script>
+      try {
+        if (document.documentElement.dataset.theme === 'dark') {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0e100f');
+        }
+      } catch (e) {}
+    </script>
+    <meta property="og:title" content="Privacy policy — AscentRoam" />
+    <meta property="og:description" content="Offline by default. No ads, no profiling, no sale of data. How AscentRoam handles account and learning data." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/img/everest-center.jpg" />
+    <link rel="icon" type="image/svg+xml" sizes="any" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  </head>
+  <body id="top">
+    <div id="root"></div>
+    <noscript>
+      <div style="max-width:640px;margin:12vh auto;padding:0 24px;font:16px/1.7 Georgia,serif;color:#1a1c1a">
+        <h1 style="font-size:34px;line-height:1.1">隐私政策 / Privacy policy</h1>
+        <p>AscentRoam 默认离线工作。只有注册并开启同步，账号与学习数据才会离开设备。我们不投放广告、不做用户画像，也不出售数据。</p>
+        <p>AscentRoam is offline by default. Account and learning data leave the device only if you register and enable sync. No ads, no profiling, no sale of data.</p>
+        <p>删除账号 / Delete account: <a href="delete-account.html">delete-account.html</a></p>
+        <p>联系 / Contact: <a href="mailto:support@ascentroam.com">support@ascentroam.com</a></p>
+      </div>
+    </noscript>
+    <script type="module" src="/src/privacy-main.jsx"></script>
+  </body>
+</html>

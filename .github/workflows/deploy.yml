@@ -1,0 +1,59 @@
+name: Deploy site
+
+# 只做一件事：把 Vite 构建产物发到 GitHub Pages。
+# 站点源码留在 main，产物不进仓库 —— 免得「改了源码忘了重新构建」这种历史包袱。
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 同一时刻只允许一次部署；新的推送会取消排队中的旧任务。
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build
+        # 删除请求走 Formspree，不需要任何后端。
+        # VITE_* 是构建期内联的公开值，不要往这里放密钥。
+        env:
+          VITE_ACCOUNT_DELETION_ENDPOINT: https://formspree.io/f/mrppzwqp
+          VITE_ACCOUNT_DELETION_EMAIL: support@ascentroam.com
+        run: npm run build
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+        with:
+          # 在这里声明自定义域，Pages 会自己绑定，不用去设置页手填。
+          cname: www.ascentroam.com
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

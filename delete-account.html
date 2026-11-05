@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem('ar-theme');
+          if (t === 'dark' || t === 'light') document.documentElement.dataset.theme = t;
+        } catch (e) {}
+
+        // Precedence: explicit user choice > Cloudflare country hint > browser.
+        var saved = null;
+        try {
+          saved = localStorage.getItem('ar-lang');
+        } catch (e) {}
+        var lang = saved === 'zh' || saved === 'en' ? saved : window.__AR_LANG__;
+        if (lang !== 'zh' && lang !== 'en') {
+          lang = /^zh/i.test(navigator.language || '') ? 'zh' : 'en';
+        }
+        document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+      })();
+    </script>
+    <title>Delete your account — AscentRoam</title>
+    <meta name="description" content="Delete your AscentRoam account and its synced data, or clear the records on this device. In-app steps, the data we delete and keep, and a web request form." />
+    <meta name="theme-color" content="#f7f7f4" />
+    <script>
+      try {
+        if (document.documentElement.dataset.theme === 'dark') {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0e100f');
+        }
+      } catch (e) {}
+    </script>
+    <meta property="og:title" content="Delete your account — AscentRoam" />
+    <meta property="og:description" content="How to delete your AscentRoam account, what is removed, and what is kept." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/img/everest-center.jpg" />
+    <link rel="icon" type="image/svg+xml" sizes="any" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  </head>
+  <body id="top">
+    <div id="root"></div>
+    <noscript>
+      <div style="max-width:640px;margin:12vh auto;padding:0 24px;font:16px/1.7 Georgia,serif;color:#1a1c1a">
+        <h1 style="font-size:34px;line-height:1.1">删除账号 / Delete your account</h1>
+        <p>在 AscentRoam 中进入「我的 → 设置 → 账号 → 删除账号」，或发邮件到 support@ascentroam.com。我们会在 7 个工作日内处理。</p>
+        <p>In AscentRoam, open Profile → Settings → Account → Delete account, or email support@ascentroam.com. We respond within 7 business days.</p>
+        <p><a href="./">返回网站 / Back to site</a></p>
+      </div>
+    </noscript>
+    <script type="module" src="/src/delete-main.jsx"></script>
+  </body>
+</html>

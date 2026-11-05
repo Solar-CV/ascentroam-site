@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem('ar-theme');
+          if (t === 'dark' || t === 'light') document.documentElement.dataset.theme = t;
+        } catch (e) {}
+
+        // Precedence: explicit user choice > Cloudflare country hint > browser.
+        var saved = null;
+        try {
+          saved = localStorage.getItem('ar-lang');
+        } catch (e) {}
+        var lang = saved === 'zh' || saved === 'en' ? saved : window.__AR_LANG__;
+        if (lang !== 'zh' && lang !== 'en') {
+          lang = /^zh/i.test(navigator.language || '') ? 'zh' : 'en';
+        }
+        document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+      })();
+    </script>
+    <title>AscentRoam — Learn the mountain before you climb it</title>
+    <meta name="description" content="AscentRoam (登攀) is an offline high-altitude mountaineering and trekking curriculum for Android: 91 lessons, 1,563 questions, 35 field notes and 40 real-time 3D badges, from 3,200 m to 8,848 m." />
+    <meta name="theme-color" content="#f7f7f4" />
+    <script>
+      try {
+        if (document.documentElement.dataset.theme === 'dark') {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0e100f');
+        }
+      } catch (e) {}
+    </script>
+    <meta property="og:title" content="AscentRoam — Learn the mountain before you climb it" />
+    <meta property="og:description" content="91 lessons, 1,563 questions, 10 languages, fully offline. A field manual for high altitude, on Android." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/img/everest-center.jpg" />
+    <link rel="icon" type="image/svg+xml" sizes="any" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="preload" as="image" href="/img/everest-center.jpg" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "AscentRoam",
+          "alternateName": "登攀",
+          "applicationCategory": "EducationalApplication",
+          "operatingSystem": "Android 8.0+",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CNY" },
+          "description": "An offline high-altitude mountaineering and trekking curriculum: 91 lessons, 1,563 questions, 35 field notes and 40 real-time 3D badges, from 3,200 m to 8,848 m.",
+          "downloadUrl": "https://github.com/Solar-CV/AscentApp/releases/latest",
+          "inLanguage": ["zh-CN","zh-TW","en","ja","de","fr","es","it","ru","sv"]
+        },
+        {
+          "@type": "WebSite",
+          "name": "AscentRoam",
+          "description": "Learn the mountain before you climb it."
+        }
+      ]
+    }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>
+      <div style="max-width:640px;margin:12vh auto;padding:0 24px;font:16px/1.7 Georgia,serif;color:#1a1c1a">
+        <h1 style="font-size:34px;line-height:1.1">AscentRoam — 登攀</h1>
+        <p>一份写给高海拔的野外手册。91 门课、1,563 道题、35 篇技能书、40 枚徽章，从 3,200 米到 8,848 米；离线可用，无需登录。</p>
+        <p>An offline high-altitude curriculum for Android — 91 lessons, 1,563 questions, 10 languages.</p>
+        <p><a href="https://github.com/Solar-CV/AscentApp/releases/latest">Download for Android</a></p>
+      </div>
+    </noscript>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

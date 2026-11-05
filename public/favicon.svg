@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108">
+  <defs>
+    <linearGradient id="ar-peak" x1="28" y1="34" x2="82" y2="106" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3FA2FF"/>
+      <stop offset="0.52" stop-color="#0F86F5"/>
+      <stop offset="1" stop-color="#0B6AD1"/>
+    </linearGradient>
+  </defs>
+  <rect width="108" height="108" rx="24" fill="#fff"/>
+  <g transform="translate(-9.8 -12) scale(1.1)">
+    <path d="M22 104 L58 36 L94 104 Z" fill="url(#ar-peak)"/>
+    <path d="M58 36 L94 104 L58 104 Z" fill="#0B5DBD" fill-opacity="0.25"/>
+    <path d="M58 36 L71 64 L58 56 L45 64 Z" fill="#fff"/>
+    <path d="M57.6 18.2 L57.6 34.8" stroke="#F5B942" stroke-width="4.4" stroke-linecap="round"/>
+    <path d="M59.8 16 L79 22.5 L59.8 29 Z" fill="#FFC800"/>
+  </g>
+</svg>

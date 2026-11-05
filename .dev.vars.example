@@ -1,0 +1,4 @@
+# Cloudflare Pages Functions (server-side only). Do not prefix with VITE_.
+# Used by functions/api/account-deletion.js to forward deletion requests.
+ACCOUNT_DELETION_WEBHOOK=
+ACCOUNT_DELETION_TOKEN=

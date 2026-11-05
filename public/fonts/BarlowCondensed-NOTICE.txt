@@ -1,0 +1,8 @@
+Barlow Condensed — Bold (700)
+
+Copyright 2017 The Barlow Project Authors (https://github.com/jpt/barlow)
+Licensed under the SIL Open Font License, Version 1.1.
+License text: https://openfontlicense.org/open-font-license-official-text/
+
+Source: Google Fonts / @fontsource/barlow-condensed
+The font is self-hosted so the site does not depend on a font CDN.
