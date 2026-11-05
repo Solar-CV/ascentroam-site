@@ -7,7 +7,7 @@ export const PRIVACY = {
     'AscentRoam 默认离线工作。只有你主动注册并开启同步，账号与学习数据才会离开这台设备。这份政策说明我们收集什么、为什么收集，以及你随时可以做什么。',
     'AscentRoam is offline by default. Account and learning data leave this device only if you register and enable sync. This policy explains what we collect, why, and what you can do about it.'
   ),
-  updated: B('生效与更新：2026 年 11 月 4 日', 'Effective and last updated: 4 November 2026'),
+  updated: B('生效与更新：2026 年 11 月 5 日', 'Effective and last updated: 5 November 2026'),
   summaryLabel: B('一句话版本', 'In one paragraph'),
   summary: B(
     '默认离线，只有注册并开启同步才会上传账号与学习数据。我们不投放广告、不做用户画像，也不出售数据。',
@@ -42,8 +42,8 @@ export const PRIVACY = {
         {
           kind: 'p',
           text: B(
-            '生效日期：2026 年 11 月 4 日。此前版本不再适用。',
-            'Effective date: 4 November 2026. Earlier versions no longer apply.'
+            '生效日期：2026 年 11 月 5 日。此前版本不再适用。',
+            'Effective date: 5 November 2026. Earlier versions no longer apply.'
           ),
         },
       ],
@@ -101,6 +101,17 @@ export const PRIVACY = {
               'Sync timestamps and the version numbers needed to resolve conflicts.'
             ),
           ],
+        },
+        {
+          kind: 'h3',
+          text: B('App 内反馈', 'In-app feedback'),
+        },
+        {
+          kind: 'p',
+          text: B(
+            '你在 App 内提交反馈时，我们会收到你填写的正文、你选择填写的邮箱，以及只有你主动勾选才会附上的诊断信息：应用版本、Android 版本、设备型号、界面语言与最近一次崩溃记录。诊断信息默认不附加。',
+            'When you send feedback from the app, we receive the message you write, the email address you choose to give, and — only if you tick the box — diagnostic details: app version, Android version, device model, interface language and the most recent crash record. Diagnostics are never attached by default.'
+          ),
         },
         {
           kind: 'h3',
@@ -303,6 +314,13 @@ export const PRIVACY = {
           text: B(
             '账号数据存储在腾讯云 CloudBase；账号邮件由 Resend 发送。它们只在提供相应服务所必需的范围内处理数据。',
             'Account data is stored in Tencent Cloud CloudBase and account email is sent through Resend. Each processes data only as needed to provide that service.'
+          ),
+        },
+        {
+          kind: 'p',
+          text: B(
+            'App 内反馈与网页的删除账号表单通过 Formspree 送达我们的支持邮箱；它只负责转发，不会将内容用于其他目的。',
+            'In-app feedback and the account-deletion form on this site are delivered to our support inbox through Formspree, which forwards the content and does not use it for any other purpose.'
           ),
         },
         {
