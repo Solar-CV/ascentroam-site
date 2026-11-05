@@ -40,9 +40,9 @@ jobs:
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
-        with:
-          # 在这里声明自定义域，Pages 会自己绑定，不用去设置页手填。
-          cname: www.ascentroam.com
+        # 自定义域不在这里设：configure-pages 没有 cname 输入。
+        # 域名在仓库 Settings → Pages → Custom domain 里填，
+        # 同时 public/CNAME 会随产物一起发布，换回分支部署时也能生效。
 
       - uses: actions/upload-pages-artifact@v3
         with:
