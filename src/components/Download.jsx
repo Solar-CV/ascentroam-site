@@ -6,7 +6,12 @@ import useLatestRelease from '../hooks/useLatestRelease.js';
 import Field from './Field.jsx';
 import { Arrow } from './Icons.jsx';
 
-const megabytes = (bytes) => (bytes ? `${(bytes / 1048576).toFixed(1)} MB` : null);
+// 和首屏、导语里的「约 31 MB」保持一致：10 MB 以上取整，以下保留一位
+const megabytes = (bytes) => {
+  if (!bytes) return null;
+  const mb = bytes / 1048576;
+  return `${mb >= 10 ? Math.round(mb) : mb.toFixed(1)} MB`;
+};
 
 export default function Download() {
   const { lang } = useLang();
