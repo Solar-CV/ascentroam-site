@@ -5,10 +5,30 @@ export const SITE = {
   cn: '登攀',
   repo: 'https://github.com/Solar-CV/AscentApp',
   releases: 'https://github.com/Solar-CV/AscentApp/releases/latest',
+  /** 「直接下载最新 APK」从这个仓库的 Releases 解析，见 hooks/useLatestRelease.js */
+  releaseSource: { owner: 'Solar-CV', repo: 'AscentApp' },
   privacy: 'privacy.html',
   email: 'support@ascentroam.com',
-  version: '0.26.7',
-  size: '30 MB',
+  version: '0.27.0',
+  size: '31 MB',
+  /**
+   * 当前版本的 APK 直链兜底。Release 附件名固定为 ascentroam-v<version>-release.apk，
+   * 所以升级版本时这里要跟着改（CI 无法访问 GitHub API 时，站点靠它保证按钮永远可点）。
+   * 运行时仍会先向 GitHub API 取最新版本，成功就用最新 release 的地址。
+   */
+  apkFallback: 'https://github.com/Solar-CV/AscentApp/releases/download/v0.27.0/ascentroam-v0.27.0-release.apk',
+  /**
+   * Google Play 入口。status 是唯一开关：
+   *   'closed' = 封测中，按钮只展示不跳转（默认）
+   *   'live'   = 已上架，按钮自动变成商店链接，不需要改组件
+   * 安装身份与 App 的 applicationId 一致（app/build.gradle.kts: com.ascentroam.app）。
+   */
+  play: {
+    packageId: 'com.ascentroam.app',
+    store: 'https://play.google.com/store/apps/details?id=com.ascentroam.app',
+    testing: 'https://play.google.com/apps/testing/com.ascentroam.app',
+    status: 'closed',
+  },
 };
 
 export const NAV = [
@@ -339,18 +359,28 @@ export const DOWNLOAD = {
   eyebrow: B('下载', 'Download'),
   title: B('把路线带走。', 'Take the route with you.'),
   lede: B(
-    'Android 8.0 及以上，arm64。安装包约 30 MB，不申请多余权限。iOS 尚未发布。',
-    'Android 8.0 and above, arm64. About 30 MB, no unnecessary permissions. iOS is not released yet.'
+    'Android 8.0 及以上，arm64。安装包约 31 MB，不申请多余权限。iOS 尚未发布。',
+    'Android 8.0 and above, arm64. About 31 MB, no unnecessary permissions. iOS is not released yet.'
   ),
-  primary: B('前往 GitHub Releases', 'Open GitHub Releases'),
-  secondary: B('查看源码', 'Read the source'),
+  // 三个下载渠道：直连最新 APK / GitHub Releases / Google Play
+  apk: B('下载 APK', 'Download APK'),
+  releases: B('GitHub Releases', 'GitHub Releases'),
+  play: B('Google Play', 'Google Play'),
+  source: B('查看源码', 'Read the source'),
+  playBadge: B('封测中', 'Closed testing'),
+  playNote: B(
+    'Google Play 还在封测阶段，公开链接尚未生效，暂时请用上面的 APK。上架后这个按钮会自己变成商店入口。',
+    'The Play listing is still in closed testing, so its public link does not resolve yet — use the APK above for now. Once it ships, this button becomes the store link by itself.'
+  ),
+  apkNote: B('直连 GitHub Release 附件，无需登录', 'Direct link to the GitHub release asset, no sign-in'),
+  apkPending: B('正在解析最新版本…', 'Resolving the latest build…'),
   specs: [
-    { k: B('版本', 'VERSION'), v: SITE.version },
-    { k: B('系统', 'ANDROID'), v: '8.0+ / API 26' },
-    { k: B('架构', 'ABI'), v: 'arm64-v8a' },
-    { k: B('体积', 'SIZE'), v: '≈ 30 MB' },
-    { k: B('价格', 'PRICE'), v: B('免费', 'Free') },
-    { k: B('账号', 'ACCOUNT'), v: B('不需要', 'Not required') },
+    { id: 'version', k: B('版本', 'VERSION'), v: null },
+    { id: 'os', k: B('系统', 'ANDROID'), v: '8.0+ / API 26' },
+    { id: 'abi', k: B('架构', 'ABI'), v: 'arm64-v8a' },
+    { id: 'size', k: B('体积', 'SIZE'), v: null },
+    { id: 'price', k: B('价格', 'PRICE'), v: B('免费', 'Free') },
+    { id: 'account', k: B('账号', 'ACCOUNT'), v: B('不需要', 'Not required') },
   ],
   note: B('开源项目 · Solar-CV/AscentApp', 'Open source · Solar-CV/AscentApp'),
 };

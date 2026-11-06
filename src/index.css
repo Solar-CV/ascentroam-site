@@ -1029,6 +1029,48 @@ html[data-theme='dark'] .gal-media img { filter: grayscale(1) contrast(1.05) bri
   color: #f4f4ee;
 }
 
+/* 下载区：三个渠道（直连 APK / Releases / Play 封测占位） */
+.btn-tag {
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  text-transform: none;
+  opacity: 0.62;
+}
+.download .btn-solid .btn-tag { opacity: 0.55; }
+.btn-tag--muted { opacity: 0.5; }
+
+.download .btn.is-disabled,
+.download .btn.is-disabled:hover {
+  border-color: rgba(244, 244, 238, 0.3);
+  border-style: dashed;
+  background: transparent;
+  color: rgba(244, 244, 238, 0.42);
+  cursor: not-allowed;
+}
+
+.download-file {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px;
+  margin-top: 18px;
+  font-family: 'SF Mono', ui-monospace, 'JetBrains Mono', Menlo, monospace;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: rgba(244, 244, 238, 0.45);
+}
+.download-file .link { color: rgba(244, 244, 238, 0.66); }
+.download-file .link:hover { color: #9db6ff; }
+.download-file-sep { opacity: 0.5; }
+
+.download-play-note {
+  max-width: 430px;
+  margin-top: 12px;
+  font-size: 11.5px;
+  line-height: 1.7;
+  color: rgba(244, 244, 238, 0.42);
+}
+
 /* ---------- footer ---------- */
 
 .footer { padding-block: 56px 34px; }

@@ -1,5 +1,5 @@
 import { useLang } from '../context/LangContext.jsx';
-import { HERO } from '../data/content.js';
+import { HERO, SITE } from '../data/content.js';
 import { IMG } from '../data/images.js';
 import { pick } from '../lib/i18n.js';
 import Field from './Field.jsx';
@@ -24,7 +24,7 @@ export default function Hero() {
     HERO.meta[0][lang],
     'Android 8.0+',
     'arm64',
-    lang === 'zh' ? '约 30 MB' : '30 MB',
+    lang === 'zh' ? `约 ${SITE.size}` : SITE.size,
   ];
 
   return (
