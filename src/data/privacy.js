@@ -42,8 +42,8 @@ export const PRIVACY = {
         {
           kind: 'p',
           text: B(
-            '生效日期：2026 年 11 月 5 日。此前版本不再适用。',
-            'Effective date: 5 November 2026. Earlier versions no longer apply.'
+            '生效日期：2026 年 11 月 9 日。此前版本不再适用。',
+            'Effective date: 9 November 2026. Earlier versions no longer apply.'
           ),
         },
       ],
