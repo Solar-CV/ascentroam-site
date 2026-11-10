@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
  * 解析 GitHub 最新 release 里的 APK 直链。
  *
  * 站点是纯静态的（GitHub Pages，没有后端），而 App 仓库的 release 附件名带版本号
- * （ascentroam-v0.27.0-release.apk），所以 releases/latest/download/<固定名> 用不了。
+ * （ascentroam-v<version>-release.apk），所以 releases/latest/download/<固定名> 用不了。
  * 这里在浏览器里读一次 GitHub API（公开仓库，CORS 允许，未登录额度 60 次/小时），
  * 取出最新 APK 的地址；结果缓存 10 分钟，失败就由调用方退回 SITE.apkFallback。
  *

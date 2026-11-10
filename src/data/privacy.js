@@ -7,7 +7,7 @@ export const PRIVACY = {
     'AscentRoam 默认离线工作。只有你主动注册并开启同步，账号与学习数据才会离开这台设备。这份政策说明我们收集什么、为什么收集，以及你随时可以做什么。',
     'AscentRoam is offline by default. Account and learning data leave this device only if you register and enable sync. This policy explains what we collect, why, and what you can do about it.'
   ),
-  updated: B('生效与更新：2026 年 11 月 5 日', 'Effective and last updated: 5 November 2026'),
+  updated: B('生效与更新：2026 年 11 月 9 日', 'Effective and last updated: 9 November 2026'),
   summaryLabel: B('一句话版本', 'In one paragraph'),
   summary: B(
     '默认离线，只有注册并开启同步才会上传账号与学习数据。我们不投放广告、不做用户画像，也不出售数据。',
@@ -101,6 +101,17 @@ export const PRIVACY = {
               'Sync timestamps and the version numbers needed to resolve conflicts.'
             ),
           ],
+        },
+        {
+          kind: 'h3',
+          text: B('天气背景（可选）', 'Weather background (optional)'),
+        },
+        {
+          kind: 'p',
+          text: B(
+            '只有你在「设置 → 外观」中开启「天气背景 · 自动」时，App 才会读取一次大致位置（约 3 公里精度），用于向天气服务查询当地天气。位置不写入账号、不上传到我们的服务器，我们也不保存位置历史；本机只缓存最近一次天气结果，180 分钟（3 小时）后过期。',
+            'Only when you turn on "Weather background · Automatic" in Settings → Appearance does the app read your approximate location once (about 3 km) to look up local weather. The location is never written to your account, never sent to our servers, and we keep no location history; the device only caches the latest weather result, which expires after 180 minutes (3 hours).'
+          ),
         },
         {
           kind: 'h3',
@@ -321,6 +332,13 @@ export const PRIVACY = {
           text: B(
             'App 内反馈与网页的删除账号表单通过 Formspree 送达我们的支持邮箱；它只负责转发，不会将内容用于其他目的。',
             'In-app feedback and the account-deletion form on this site are delivered to our support inbox through Formspree, which forwards the content and does not use it for any other purpose.'
+          ),
+        },
+        {
+          kind: 'p',
+          text: B(
+            '天气数据由 Open-Meteo 提供（CC BY 4.0）。开启自动天气时，查询请求会带上大致坐标与你的网络 IP；对方服务器日志最多保留 90 天后删除，不用于广告或画像。',
+            'Weather data is provided by Open-Meteo (CC BY 4.0). When automatic weather is on, the lookup carries your approximate coordinates and your network IP; their server logs are deleted after at most 90 days and are not used for advertising or profiling.'
           ),
         },
         {

@@ -9,14 +9,14 @@ export const SITE = {
   releaseSource: { owner: 'Solar-CV', repo: 'AscentApp' },
   privacy: 'privacy.html',
   email: 'support@ascentroam.com',
-  version: '0.27.0',
+  version: '0.27.2',
   size: '31 MB',
   /**
    * 当前版本的 APK 直链兜底。Release 附件名固定为 ascentroam-v<version>-release.apk，
    * 所以升级版本时这里要跟着改（CI 无法访问 GitHub API 时，站点靠它保证按钮永远可点）。
    * 运行时仍会先向 GitHub API 取最新版本，成功就用最新 release 的地址。
    */
-  apkFallback: 'https://github.com/Solar-CV/AscentApp/releases/download/v0.27.0/ascentroam-v0.27.0-release.apk',
+  apkFallback: 'https://github.com/Solar-CV/AscentApp/releases/download/v0.27.2/ascentroam-v0.27.2-release.apk',
   /**
    * Google Play 入口。status 是唯一开关：
    *   'closed' = 封测中，按钮只展示不跳转（默认）
