@@ -1,14 +1,18 @@
 name: Deploy site
 
-# 只做一件事：把 Vite 构建产物发到 GitHub Pages。
+# 两件事：把 Vite 构建产物发到 GitHub Pages；每天顺带核对 App 最新 release。
 # 站点源码留在 main，产物不进仓库 —— 免得「改了源码忘了重新构建」这种历史包袱。
 on:
   push:
     branches: [main]
+  # 每天 03:20（新加坡时间）巡检一次 App 的 Releases。
+  # 有新版就改 content.js 并在同一次 run 里构建部署，官网直连地址最多滞后 24 小时。
+  schedule:
+    - cron: '20 19 * * *'
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -27,6 +31,27 @@ jobs:
         with:
           node-version: 20
           cache: npm
+
+      # 定时 / 手动触发时，先把 App 最新 release 写进 src/data/content.js。
+      # GITHUB_TOKEN 的 push 不会再次触发 workflow，所以直接在同一次 run 里继续构建。
+      - name: Sync latest app release
+        if: github.event_name != 'push'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/sync-release.mjs
+
+      - name: Commit synced release info
+        if: github.event_name != 'push'
+        run: |
+          if git diff --quiet -- src/data/content.js; then
+            echo "没有变化，跳过提交"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/content.js
+          git commit -m "chore: 同步 App 最新 release"
+          git push
 
       - run: npm ci
 

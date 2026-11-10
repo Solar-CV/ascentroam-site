@@ -9,14 +9,14 @@ export const SITE = {
   releaseSource: { owner: 'Solar-CV', repo: 'AscentApp' },
   privacy: 'privacy.html',
   email: 'support@ascentroam.com',
-  version: '0.27.2',
-  size: '31 MB',
+  version: '0.28.0',
+  size: '36 MB',
   /**
-   * 当前版本的 APK 直链兜底。Release 附件名固定为 ascentroam-v<version>-release.apk，
-   * 所以升级版本时这里要跟着改（CI 无法访问 GitHub API 时，站点靠它保证按钮永远可点）。
-   * 运行时仍会先向 GitHub API 取最新版本，成功就用最新 release 的地址。
+   * 当前版本的 APK 直链兜底：浏览器取不到 GitHub API 时，按钮靠它保证永远可点。
+   * 由 scripts/sync-release.mjs 在 CI 里每日同步（连同上面的 version / size），
+   * 手动改也可以，改了记得和 App 最新 release 对齐。
    */
-  apkFallback: 'https://github.com/Solar-CV/AscentApp/releases/download/v0.27.2/ascentroam-v0.27.2-release.apk',
+  apkFallback: 'https://github.com/Solar-CV/AscentApp/releases/download/v0.28.0/ascentroam-v0.28.0-release.apk',
   /**
    * Google Play 入口。status 是唯一开关：
    *   'closed' = 封测中，按钮只展示不跳转（默认）
@@ -359,8 +359,8 @@ export const DOWNLOAD = {
   eyebrow: B('下载', 'Download'),
   title: B('把路线带走。', 'Take the route with you.'),
   lede: B(
-    'Android 8.0 及以上，arm64。安装包约 31 MB，不申请多余权限。iOS 尚未发布。',
-    'Android 8.0 and above, arm64. About 31 MB, no unnecessary permissions. iOS is not released yet.'
+    `Android 8.0 及以上，arm64。安装包约 ${SITE.size}，不申请多余权限。iOS 尚未发布。`,
+    `Android 8.0 and above, arm64. About ${SITE.size}, no unnecessary permissions. iOS is not released yet.`
   ),
   // 三个下载渠道：直连最新 APK / GitHub Releases / Google Play
   apk: B('下载 APK', 'Download APK'),
