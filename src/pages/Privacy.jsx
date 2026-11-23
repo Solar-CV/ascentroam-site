@@ -130,6 +130,7 @@ export default function Privacy() {
         <div className="shell del-footer-inner">
           <span>© {new Date().getFullYear()} AscentRoam</span>
           <div className="del-footer-links">
+            <a href="support.html">{pick(t.footer.support, lang)}</a>
             <a href="delete-account.html">{pick(t.footer.delete, lang)}</a>
             <a href={SITE.repo} target="_blank" rel="noreferrer">{pick(t.footer.source, lang)}</a>
             <a href="./">{pick(t.footer.home, lang)}</a>

@@ -394,6 +394,7 @@ export const FOOTER = {
   links: [
     { href: SITE.repo, label: 'GitHub' },
     { href: SITE.releases, label: 'Releases' },
+    { href: 'support.html', label: B('支持项目', 'Support the project') },
     { href: 'delete-account.html', label: B('删除账号', 'Delete account') },
     { href: SITE.privacy, label: B('隐私政策', 'Privacy') },
   ],

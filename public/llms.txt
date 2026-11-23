@@ -19,3 +19,6 @@ https://github.com/Solar-CV/AscentApp/releases/latest
 
 ## Source
 https://github.com/Solar-CV/AscentApp
+
+## Support
+AscentRoam is free, with no ads and no paid unlocks. Any support is a voluntary donation with no reward: it confers no features, digital content, exclusive badges or priority of any kind. https://www.ascentroam.com/support

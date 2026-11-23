@@ -428,5 +428,6 @@ export const PRIVACY = {
     home: B('返回网站', 'Back to site'),
     backTop: B('回到顶部', 'Back to top'),
     privacy: B('隐私政策', 'Privacy'),
+    support: B('支持项目', 'Support'),
   },
 };

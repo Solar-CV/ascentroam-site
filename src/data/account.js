@@ -176,5 +176,6 @@ export const ACCOUNT = {
     source: B('开源项目', 'Source'),
     home: B('返回网站', 'Back to site'),
     backTop: B('回到顶部', 'Back to top'),
+    support: B('支持项目', 'Support'),
   },
 };

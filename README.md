@@ -21,8 +21,9 @@ Node 18+。工程与同级参考项目 /Users/lolo/Desktop/WEB 使用同一套 V
 index.html                 标题、描述、OG、JSON-LD、首屏主题/语言初始化、noscript
 delete-account.html        独立的删除账号页入口
 privacy.html               独立的隐私政策页入口
+support.html               独立的赞助说明页入口
 public/
-  _redirects               /delete-account、/privacy -> 对应 .html（Cloudflare Pages）
+  _redirects               /delete-account、/privacy、/support -> 对应 .html（Cloudflare Pages）
   favicon.svg              App 山峰旗图标（108 viewBox）
   favicon-32.png           32 px PNG（由 SVG 渲染后缩小）
   apple-touch-icon.png     180 px PNG
@@ -41,8 +42,10 @@ src/
   main.jsx                 React 入口
   delete-main.jsx          删除账号页入口
   privacy-main.jsx         隐私政策页入口
+  support-main.jsx         赞助说明页入口
   pages/DeleteAccount.jsx  删除账号页 UI 与表单状态机
   pages/Privacy.jsx        隐私政策页 UI 与目录
+  pages/Support.jsx        赞助说明页 UI（渠道卡、权益对照表、正文）
   App.jsx                  语言 Provider、章节顺序、滚动 reveal、跳转链接
   index.css                设计系统（令牌 / 版式 / 各章节 / 响应式 / 深色主题）
   lib/linefield.js         Canvas 线场引擎（采样、量化、噪声、指针弹簧、主题重绘）
@@ -54,6 +57,7 @@ src/
   data/images.js           全部位图路径（Cloudinary 开关在这里）
   data/account.js          删除账号页文案、接口地址、联系邮箱与处理时限
   data/privacy.js          隐私政策全文（中英双语、10 节）
+  data/support.js          赞助页文案（无偿性质、两个渠道、手续费与退款口径）
   context/LangContext.jsx
   hooks/useLanguage.js     语言优先级：saved > window.__AR_LANG__ > 浏览器
   hooks/useTheme.js        localStorage ar-theme，默认浅色
@@ -165,6 +169,14 @@ Cloudflare Pages 额外支持 IP 语言提示与删除请求接口：把整个�
 - 桌面为左侧 sticky 目录 + 右侧正文；900 px 以下目录收起，只留正文。顶部摘要卡用一句话概括“默认离线、无广告、不出售数据”。
 - 主站 `SITE.privacy` 已改为站内相对地址 `privacy.html`，安全说明侧栏与两处页脚都指向本页；删除账号页也从本页进入。
 - 修改政策时同时改 `src/data/privacy.js` 的 `updated` 与对应条款；App 内 `docs/privacy.html` 需要单独同步，二者以本页为准。
+
+## 赞助页
+
+- 线上地址 `/support`（GitHub Pages 直接命中 `support.html`，`_redirects` 只是给 Cloudflare 部署留的兼容项）。
+- 页面在 `src/pages/Support.jsx`，文案在 `src/data/support.js`。结构是：标题 + 一句话摘要 → 三条硬约束（不分金额 / 不换权益 / 可随时停）→ 两个渠道卡（爱发电、Ko-fi，含支付方式、频率、平台扣费）→ 「它换不回什么」对照表 → 四节正文（钱花在哪、平台扣多少、误付与退款、不花钱也能帮）→ 收尾引言。
+- 这页同时是 App 内「支持」入口的落点，也是 README 赞助段的口径来源。**任何改动都不许出现「回报」类表述**：课程、题库、徽章、去广告、优先答复一律写明「不因赞助改变」。这不是文风问题，是 Google Play 判定「捐赠」而非「数字商品交易」的依据。
+- 未接支付宝 / 微信个人收款码：二维码没有对账记录与退款通道，出问题双方都说不清，正文第 02 节把这条理由写给用户看。
+- 改渠道或费率时三处一起改：本页 `src/data/support.js`、`SITE` 里的相关链接、App 仓库 README 的赞助段。
 
 ## 可访问性与降级
 
