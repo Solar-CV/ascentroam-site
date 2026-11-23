@@ -25,7 +25,7 @@ export default function Support() {
   const zh = lang === 'zh';
 
   useEffect(() => {
-    document.title = zh ? '赞助 · 无偿 — AscentRoam' : 'Support · voluntary — AscentRoam';
+    document.title = zh ? '支持 AscentRoam — AscentRoam' : 'Support — AscentRoam';
   }, [zh]);
 
   return (
@@ -141,7 +141,7 @@ export default function Support() {
             {t.sections.map((section) => (
               <section className="policy-section" id={section.id} key={section.id}>
                 <div className="policy-section-head">
-                  <span className="policy-num">{section.num}</span>
+                  {section.num && <span className="policy-num">{section.num}</span>}
                   <h2 className="policy-h2">{pick(section.title, lang)}</h2>
                 </div>
                 {section.blocks.map((block, index) => (
@@ -152,7 +152,6 @@ export default function Support() {
 
             <blockquote className="support-quote">
               <p>{pick(t.quote, lang)}</p>
-              <footer>{pick(t.quoteFrom, lang)}</footer>
             </blockquote>
 
             <p className="policy-doc-note">{pick(t.docNote, lang)}</p>

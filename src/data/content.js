@@ -137,7 +137,7 @@ export const TRACKS = {
     {
       id: 'bank',
       kicker: B('题库', 'Question bank'),
-      title: B('学完，再被问一次。', 'Then be asked again.'),
+      title: B('学完，再被问一次。', 'Learn it, then get tested.'),
       copy: B(
         '八种题型，从单选到情景判断。答错不扣分，直接进入当课的错题重做。',
         'Eight formats, from single choice to scenario judgement. A wrong answer costs nothing; it returns in that lesson’s retry set.'
@@ -260,7 +260,7 @@ export const NOTES = {
 export const BADGES = {
   eyebrow: B('记录', 'Record'),
   meta: B('40 枚成就', '40 OBJECTS'),
-  title: B('40 枚徽章，都是实物。', 'Forty badges. All objects.'),
+  title: B('40 枚徽章，都是立体的。', 'Forty badges, all modelled in 3D.'),
   lede: B(
     '不是平面图标。每一枚都有金属外框、珐琅与浮雕山体，实时渲染，解锁时喷彩带。个人主页只陈列你真正拿到的那几枚。',
     'Not flat icons. Each one has a metal rim, enamel and a relief summit, rendered live. The profile shows only what you have actually earned.'
