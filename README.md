@@ -63,7 +63,7 @@ src/
   hooks/useTheme.js        localStorage ar-theme，默认浅色
   components/              Nav Hero Marquee Method Tracks Practice Notes
                            AppShowcase Interlude Badges Gallery Languages
-                           Safety Download Footer Field Icons
+                           Safety Download SupportStrip Footer Field Icons
 ```
 
 ## 视觉：Quantized Line Field
@@ -177,6 +177,8 @@ Cloudflare Pages 额外支持 IP 语言提示与删除请求接口：把整个�
 - 这页同时是 App 内「支持」入口的落点，也是 README 赞助段的口径来源。**任何改动都不许出现「回报」类表述**：课程、题库、徽章、去广告、优先答复一律写明「不因赞助改变」。这不是文风问题，是 Google Play 判定「捐赠」而非「数字商品交易」的依据。
 - 刻意不写「钱花在哪里 / 平台扣多少」整节：域名、开发者账号这类开销列出来反而像经营汇报，平台费率已经写在渠道卡里。若以后要恢复，从 git 历史找 2026-11-23 之前的 `support.js`。
 - 文风：像开发者本人解释，不写格言（「山不会因为…」这类已删），不硬凑对仗；与站点其他页的「我们」不同，这页用「我」，因为是个人项目。
+- 首页入口是 `components/SupportStrip.jsx` + `SUPPORT_TEASER`（同一个 `data/support.js`）：Download 之后、Footer 之前的一条窄带，只有 label、一句话和一个文字链接，不放按钮，点进去才是赞助页。底色用 `--paper-2`，与深色的下载区、米白的页脚形成三档。
+- 中文版标题里混排的拉丁词（「支持 / AscentRoam。」）**只加粗、不换字体**：`withLatinBold()` 把拉丁片段包成 `<span class="latin-bold">`。整块换成 Barlow Condensed 会让英文小一圈、句号还留在宋体上，试过，不行。页脚的品牌大字是纯英文，`html[lang='zh-CN'] .footer-word` 整行换 Barlow 没问题。
 - 改渠道或费率时三处一起改：本页 `src/data/support.js`、`SITE` 里的相关链接、App 仓库 README 的赞助段。
 
 ## 可访问性与降级

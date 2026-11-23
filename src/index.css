@@ -1073,6 +1073,50 @@ html[data-theme='dark'] .gal-media img { filter: grayscale(1) contrast(1.05) bri
 
 /* ---------- footer ---------- */
 
+/* ---------- home: support strip ----------
+   首页收尾的一条窄带，只有一条 hairline，不占章节编号。 */
+
+.support-strip {
+  border-bottom: 1px solid var(--rule);
+  background: var(--paper-2);
+}
+.support-strip-inner {
+  display: grid;
+  grid-template-columns: 88px minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 10px 28px;
+  padding-block: 30px 32px;
+}
+.support-strip-body {
+  max-width: 620px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--ink-2);
+  text-wrap: pretty;
+}
+.support-strip-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-family: 'SF Mono', ui-monospace, 'JetBrains Mono', Menlo, Consolas, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  color: var(--ink);
+  white-space: nowrap;
+}
+.support-strip-cta:hover { color: var(--blue); }
+.support-strip-cta svg { transition: transform 0.3s var(--ease); }
+.support-strip-cta:hover svg { transform: translateX(3px); }
+
+@media (max-width: 760px) {
+  .support-strip-inner {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding-block: 26px 28px;
+  }
+  .support-strip-cta { justify-self: start; }
+}
+
 .footer { padding-block: 56px 34px; }
 .footer-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 30px; align-items: flex-start; }
 .footer-word {
@@ -1717,6 +1761,15 @@ html[lang='en'] .mobile-menu a {
 
 html[lang='en'] .h-display,
 html[lang='en'] .hero-title { letter-spacing: -0.016em; }
+
+/* 中文版里混排的拉丁大字。
+   footer 的品牌字是纯英文，整行换成 Barlow；标题里夹在汉字中间的拉丁词
+   不能换字体（会小一圈、句号脱节），只加粗，保持衬线家族一致。 */
+html[lang='zh-CN'] .footer-word {
+  font-family: 'Barlow Condensed', Georgia, 'Times New Roman', 'Songti SC',
+    'Noto Serif CJK SC', serif;
+}
+.policy-title .latin-bold { font-weight: 700; }
 
 /* =========================================================
    Hero — a full-screen summit stage

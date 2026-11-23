@@ -16,6 +16,7 @@ import Gallery from './components/Gallery.jsx';
 import Languages from './components/Languages.jsx';
 import Safety from './components/Safety.jsx';
 import Download from './components/Download.jsx';
+import SupportStrip from './components/SupportStrip.jsx';
 import Footer from './components/Footer.jsx';
 
 export default function App() {
@@ -64,6 +65,7 @@ export default function App() {
         <Languages />
         <Safety />
         <Download />
+        <SupportStrip />
       </main>
       <Footer />
     </LangContext.Provider>

@@ -132,3 +132,16 @@ export const SUPPORT = {
     'The Support entry in the app opens this page.'
   ),
 };
+
+/**
+ * 首页底部的一条窄带（Download 之后、Footer 之前）。
+ * 不放按钮、不抢视线：一句事实 + 一个文字链接，点进去才是赞助页。
+ */
+export const SUPPORT_TEASER = {
+  label: B('支持', 'Support'),
+  body: B(
+    '完全免费，没有广告，也没有付费解锁。愿意的话，可以帮它继续做下去。',
+    'Completely free — no ads, no paid unlocks. If you want, you can help keep it going.'
+  ),
+  cta: B('看看怎么支持', 'Ways to support'),
+};

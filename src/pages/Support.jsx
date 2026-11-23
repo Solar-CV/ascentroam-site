@@ -18,6 +18,22 @@ function Block({ block, lang }) {
   return <p>{pick(block.text, lang)}</p>;
 }
 
+/**
+ * 标题里的品牌名单独加粗：中文标题是「支持 / AscentRoam。」，
+ * 整块换字体会让英文小一圈、句号也跟错字体，只加粗最稳。
+ */
+function withLatinBold(text) {
+  return text
+    .split(/([A-Za-z][A-Za-z0-9'’.-]*)/g)
+    .map((part, i) =>
+      /^[A-Za-z]/.test(part) ? (
+        <span className="latin-bold" key={i}>{part}</span>
+      ) : (
+        part
+      )
+    );
+}
+
 export default function Support() {
   const { lang, setLang } = useLanguage();
   const { theme, toggle } = useTheme();
@@ -67,7 +83,7 @@ export default function Support() {
         <section className="shell policy-hero" aria-labelledby="support-title">
           <div className="policy-hero-copy">
             <span className="label">{pick(t.kicker, lang)}</span>
-            <h1 className="policy-title" id="support-title">{pick(t.title, lang)}</h1>
+            <h1 className="policy-title" id="support-title">{withLatinBold(pick(t.title, lang))}</h1>
             <p className="policy-lede">{pick(t.lede, lang)}</p>
             <p className="policy-updated label">{pick(t.updated, lang)}</p>
           </div>
