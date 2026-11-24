@@ -1,27 +1,17 @@
-import { useState } from 'react';
 import { useLang } from '../context/LangContext.jsx';
 import { BADGES } from '../data/content.js';
 import { BADGE } from '../data/images.js';
 import { pick } from '../lib/i18n.js';
-import Field from './Field.jsx';
 
 function Badge({ badge, index }) {
   const { lang } = useLang();
-  const [lines, setLines] = useState(false);
   const name = lang === 'zh' ? badge.zh : badge.en;
 
   return (
     <div className="badge-cell reveal" style={{ '--d': index * 40 + 'ms' }}>
-      <button
-        className={'badge-box' + (lines ? ' show-lines' : '')}
-        type="button"
-        onClick={() => setLines((v) => !v)}
-        aria-pressed={lines}
-        aria-label={name + (lang === 'zh' ? (lines ? ' — 线场' : ' — 查看线场') : (lines ? ' — line field' : ' — show line field'))}
-      >
-        <Field src={BADGE(badge.file)} mode="badge" className="" cell={6} />
+      <div className="badge-box">
         <img src={BADGE(badge.file)} alt="" loading="lazy" decoding="async" />
-      </button>
+      </div>
       <div className="badge-name">
         {name}
         <em>{pick(badge.note, lang)}</em>
