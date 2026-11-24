@@ -1414,6 +1414,7 @@ html[data-theme='dark'] .hero-field-label { text-shadow: 0 1px 8px rgba(14, 16, 
   gap: 10px;
   min-height: 0;
 }
+/* 圆角走连续曲率（squircle）；内屏半径 = 外框半径 − 外框 padding，两层同心。 */
 .inside-device {
   position: relative;
   flex: 0 0 auto;
@@ -1421,6 +1422,7 @@ html[data-theme='dark'] .hero-field-label { text-shadow: 0 1px 8px rgba(14, 16, 
   aspect-ratio: 1080 / 2400;
   padding: 6px;
   border-radius: 26px;
+  corner-shape: squircle;
   background: linear-gradient(160deg, #1b1e1b, #050706);
   border: 1px solid rgba(244, 244, 238, 0.22);
   box-shadow:
@@ -1441,7 +1443,8 @@ html[data-theme='dark'] .hero-field-label { text-shadow: 0 1px 8px rgba(14, 16, 
   position: relative;
   height: 100%;
   overflow: hidden;
-  border-radius: 16px;
+  border-radius: 20px;
+  corner-shape: squircle;
   background: #f5f5f2;
 }
 .inside-shot {
@@ -1680,7 +1683,7 @@ html[data-theme='dark'] .hero-field-label { text-shadow: 0 1px 8px rgba(14, 16, 
   /* 手机竖屏：让模拟框吃掉可用的纵向空间，而不是缩成一小块。
      高度同时受视口高度和「文案 + 步骤条 + 底部标签」的固定开销约束。 */
   .inside-device { height: min(61svh, calc(100svh - 335px)); border-radius: 16px; padding: 4px; }
-  .inside-screen { border-radius: 9px; }
+  .inside-screen { border-radius: 12px; }
   .inside-device-meta { display: none; }
   .inside-copy { order: 2; flex: 1; min-height: 0; justify-content: flex-start; }
   .inside-counter { display: none; }
