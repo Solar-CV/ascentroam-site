@@ -123,6 +123,7 @@ export const SUPPORT = {
   footer: {
     home: B('返回首页', 'Home'),
     privacy: B('隐私政策', 'Privacy'),
+    terms: B('服务条款', 'Terms'),
     delete: B('删除账号', 'Delete account'),
     source: B('开源项目', 'Source'),
     backTop: B('回到顶部', 'Back to top'),

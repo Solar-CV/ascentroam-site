@@ -177,5 +177,6 @@ export const ACCOUNT = {
     home: B('返回网站', 'Back to site'),
     backTop: B('回到顶部', 'Back to top'),
     support: B('支持项目', 'Support'),
+    terms: B('服务条款', 'Terms'),
   },
 };

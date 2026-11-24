@@ -180,6 +180,7 @@ export default function Support() {
           <span>© {new Date().getFullYear()} AscentRoam</span>
           <div className="del-footer-links">
             <a href={SITE.privacy}>{pick(t.footer.privacy, lang)}</a>
+            <a href="terms.html">{pick(t.footer.terms, lang)}</a>
             <a href="delete-account.html">{pick(t.footer.delete, lang)}</a>
             <a href={SITE.repo} target="_blank" rel="noreferrer">{pick(t.footer.source, lang)}</a>
             <a href="#top">{pick(t.footer.backTop, lang)} ↑</a>

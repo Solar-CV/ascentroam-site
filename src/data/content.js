@@ -397,6 +397,7 @@ export const FOOTER = {
     { href: 'support.html', label: B('支持项目', 'Support the project') },
     { href: 'delete-account.html', label: B('删除账号', 'Delete account') },
     { href: SITE.privacy, label: B('隐私政策', 'Privacy') },
+    { href: 'terms.html', label: B('服务条款', 'Terms') },
   ],
   top: B('回到顶部', 'Back to top'),
   imprint: B(

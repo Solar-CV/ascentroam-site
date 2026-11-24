@@ -22,8 +22,9 @@ index.html                 标题、描述、OG、JSON-LD、首屏主题/语言�
 delete-account.html        独立的删除账号页入口
 privacy.html               独立的隐私政策页入口
 support.html               独立的赞助说明页入口
+terms.html                 独立的服务条款页入口
 public/
-  _redirects               /delete-account、/privacy、/support -> 对应 .html（Cloudflare Pages）
+  _redirects               /delete-account、/privacy、/support、/terms -> 对应 .html（Cloudflare Pages）
   favicon.svg              App 山峰旗图标（108 viewBox）
   favicon-32.png           32 px PNG（由 SVG 渲染后缩小）
   apple-touch-icon.png     180 px PNG
@@ -43,9 +44,11 @@ src/
   delete-main.jsx          删除账号页入口
   privacy-main.jsx         隐私政策页入口
   support-main.jsx         赞助说明页入口
+  terms-main.jsx           服务条款页入口
   pages/DeleteAccount.jsx  删除账号页 UI 与表单状态机
   pages/Privacy.jsx        隐私政策页 UI 与目录
   pages/Support.jsx        赞助说明页 UI（渠道卡、权益对照表、正文）
+  pages/Terms.jsx          服务条款页 UI（与隐私页同一套排版）
   App.jsx                  语言 Provider、章节顺序、滚动 reveal、跳转链接
   index.css                设计系统（令牌 / 版式 / 各章节 / 响应式 / 深色主题）
   lib/linefield.js         Canvas 线场引擎（采样、量化、噪声、指针弹簧、主题重绘）
@@ -58,6 +61,7 @@ src/
   data/account.js          删除账号页文案、接口地址、联系邮箱与处理时限
   data/privacy.js          隐私政策全文（中英双语、10 节）
   data/support.js          赞助页文案（无偿性质、两个渠道、手续费与退款口径）
+  data/terms.js            服务条款全文（中英双语、6 节）
   context/LangContext.jsx
   hooks/useLanguage.js     语言优先级：saved > window.__AR_LANG__ > 浏览器
   hooks/useTheme.js        localStorage ar-theme，默认浅色
@@ -169,6 +173,14 @@ Cloudflare Pages 额外支持 IP 语言提示与删除请求接口：把整个�
 - 桌面为左侧 sticky 目录 + 右侧正文；900 px 以下目录收起，只留正文。顶部摘要卡用一句话概括“默认离线、无广告、不出售数据”。
 - 主站 `SITE.privacy` 已改为站内相对地址 `privacy.html`，安全说明侧栏与两处页脚都指向本页；删除账号页也从本页进入。
 - 修改政策时同时改 `src/data/privacy.js` 的 `updated` 与对应条款；App 内 `docs/privacy.html` 需要单独同步，二者以本页为准。
+
+## 服务条款页
+
+- 线上地址 `/terms`，本地用 `/terms.html` 验收。
+- 页面在 `src/pages/Terms.jsx`，正文在 `src/data/terms.js`，6 节：使用许可 / 内容边界 / 账号与数据 / 知识产权 / 免责 / 变更与联系。
+- 与 App 内的 `data/TermsPolicy.kt` 是同一份口径（App 内另有繁中），**改条款时两边一起改**，App 端还要动 `TermsPolicy.VERSION`。
+- 排版完全复用隐私页的 `.del-page` + `.policy-*`，没有新增 CSS；左侧目录复用 `.policy-toc`。
+- 加这页的直接原因：设置里的「服务条款」需要一个可引用的地址，同时 App 内保留离线副本。
 
 ## 赞助页
 
