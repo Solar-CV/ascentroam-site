@@ -1,15 +1,15 @@
 import { B } from '../lib/i18n.js';
 
-// Real screenshots captured from v0.26.3 on a 1080x2400 Android emulator.
+// Real screenshots captured from v0.28.8 on a 1080x2400 Android 16 emulator.
 export const APP = {
   eyebrow: B('应用', 'In the app'),
   meta: B('5 张 · 真实安装包', '5 SCREENS · REAL BUILD'),
   title: B('每一课，都往上走一点。', 'Every lesson moves you up.'),
   lede: B(
-    '这些不是效果图，是在 Android 上装好 v0.26.3 之后截下来的界面。向下滚动，从起点看到训练。',
-    'Not mockups. These are captures from v0.26.3 installed on Android. Scroll from base camp through to training.'
+    '这些不是效果图，是在 Android 上装好 v0.28.8 之后截下来的界面。向下滚动，从起点看到训练。',
+    'Not mockups. These are captures from v0.28.8 installed on Android. Scroll from base camp through to training.'
   ),
-  spec: B('1080 × 2400 · Android 15', '1080 × 2400 · Android 15'),
+  spec: B('1080 × 2400 · Android 16', '1080 × 2400 · Android 16'),
   stepsLabel: B('界面步骤', 'App screens'),
   steps: [
     {
@@ -22,7 +22,7 @@ export const APP = {
         'You start at 3,200 m. Ten units sit on one rising line. Finish a lesson and you gain metres; clear a unit and you reach the next camp.'
       ),
       meta: B('3,200 M · 第 1 单元', '3,200 M · UNIT 1'),
-      alt: B('App 路径页：3,200 米起点、第 1 单元与当前课程', 'App path screen: 3,200 m start, Unit 1 and the current lesson'),
+      alt: B('App 路径页：3,200 米起点、玉山卡片、第 1 单元与当前课程', 'App path screen: 3,200 m start, Unit 1 and the current lesson'),
     },
     {
       id: 'lesson',
@@ -58,7 +58,7 @@ export const APP = {
         'Altitude medicine, snow and ice, ice climbing, ropes, weather, rescue. Filtered by the track you are on, so nothing irrelevant appears.'
       ),
       meta: B('35 篇 · 11 类', '35 NOTES · 11 CATEGORIES'),
-      alt: B('技能书列表：高海拔医学与冰雪技术文章', 'Handbook list: altitude medicine and snow-and-ice articles'),
+      alt: B('技能书列表：搜索、分类筛选与高海拔医学文章', 'Handbook list: altitude medicine and snow-and-ice articles'),
     },
     {
       id: 'breath',

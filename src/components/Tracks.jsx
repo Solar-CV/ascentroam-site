@@ -11,7 +11,7 @@ export default function Tracks() {
       <div className="shell">
         <div className="sec-rule">
           <span className="label">02 — {pick(TRACKS.eyebrow, lang)}</span>
-          <span className="label">69 + 22 / 1,563</span>
+          <span className="label">69 + 22 / 1,721</span>
         </div>
 
         <div className="sec-head reveal">

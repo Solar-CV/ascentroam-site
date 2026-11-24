@@ -46,8 +46,8 @@ export const HERO = {
   titleLine2: B('先把山学明白。', 'before you climb it.'),
   accent: B('先', 'before'),
   lede: B(
-    'AscentRoam 是一份写给高海拔的野外手册。91 门课、1,563 道题，从 3,200 米到 8,848 米——离线可用，无需登录。',
-    'AscentRoam is a field manual for high altitude. 91 lessons and 1,563 questions, from 3,200 m to 8,848 m — offline, no account required.'
+    'AscentRoam 是一份写给高海拔的野外手册。91 门课、1,721 道题，从 3,200 米到 8,848 米——离线可用，无需登录。',
+    'AscentRoam is a field manual for high altitude. 91 lessons and 1,721 questions, from 3,200 m to 8,848 m — offline, no account required.'
   ),
   primary: B('下载 Android 版', 'Download for Android'),
   secondary: B('看看界面', 'See the app'),
@@ -61,7 +61,7 @@ export const HERO = {
 export const TICKER = [
   B('3,200 M 起点', '3,200 M START'),
   B('91 门课', '91 LESSONS'),
-  B('1,563 道题', '1,563 QUESTIONS'),
+  B('1,721 道题', '1,721 QUESTIONS'),
   B('38 座山峰与线路', '38 PEAKS & ROUTES'),
   B('35 篇技能书', '35 FIELD NOTES'),
   B('40 枚徽章', '40 BADGES'),
@@ -143,7 +143,7 @@ export const TRACKS = {
         'Eight formats, from single choice to scenario judgement. A wrong answer costs nothing; it returns in that lesson’s retry set.'
       ),
       stats: [
-        { n: '1,563', label: B('道题', 'items') },
+        { n: '1,721', label: B('道题', 'items') },
         { n: '8', label: B('种题型', 'formats') },
         { n: '0/1/3/7/16/35', label: B('天间隔重复', 'day spacing') },
       ],

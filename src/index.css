@@ -1679,15 +1679,17 @@ html[data-theme='dark'] .hero-field-label { text-shadow: 0 1px 8px rgba(14, 16, 
     padding-top: 14px;
   }
   .inside-visual { order: 1; flex: 0 0 auto; }
-  .inside-device { height: clamp(260px, 43svh, 380px); border-radius: 34px; padding: 7px; }
+  /* 手机竖屏：让模拟框吃掉可用的纵向空间，而不是缩成一小块。
+     高度同时受视口高度和「文案 + 步骤条 + 底部标签」的固定开销约束。 */
+  .inside-device { height: min(58svh, calc(100svh - 345px)); border-radius: 34px; padding: 7px; }
   .inside-screen { border-radius: 27px; }
   .inside-device-meta { display: none; }
   .inside-copy { order: 2; flex: 1; min-height: 0; justify-content: flex-start; }
   .inside-counter { display: none; }
-  .inside-steps { min-height: 156px; flex: 1; }
+  .inside-steps { min-height: 136px; flex: 1; }
   .inside-title { margin: 5px 0 9px; font-size: clamp(22px, 6vw, 28px); }
   .inside-text { font-size: 13px; line-height: 1.62; }
-  .inside-step-meta { margin-top: 9px; font-size: 8.5px; }
+  .inside-step-meta { display: none; }
   .inside-tabs { margin-top: 8px; padding-top: 9px; gap: 2px; }
   .inside-tab {
     align-items: center;
@@ -1697,6 +1699,8 @@ html[data-theme='dark'] .hero-field-label { text-shadow: 0 1px 8px rgba(14, 16, 
   }
   .inside-tab span { font-size: 8px; }
   .inside-tab em { font-size: 8.5px; letter-spacing: 0; white-space: nowrap; }
+  /* 底部已有 5 个步骤标签，卷动提示会压住标签栏；用更高优先级盖掉后面的基础规则。 */
+  .inside-stage .inside-hint { display: none; }
 
   .interlude { min-height: 560px; max-height: 900px; }
   .interlude-inner { padding-top: calc(var(--nav-h) + 18px); padding-bottom: 24px; }
@@ -1721,8 +1725,8 @@ html[data-theme='dark'] .hero-field-label { text-shadow: 0 1px 8px rgba(14, 16, 
 @media (max-width: 899px) and (max-height: 700px) {
   .inside-head .h-section { font-size: 22px; }
   .inside-main { padding-top: 8px; gap: 6px; }
-  .inside-device { height: clamp(190px, 32svh, 240px); }
-  .inside-steps { min-height: 126px; }
+  .inside-device { height: min(58svh, calc(100svh - 345px)); }
+  .inside-steps { min-height: 124px; }
   .inside-title { font-size: 20px; margin: 3px 0 6px; }
   .inside-text { font-size: 12px; line-height: 1.55; }
   .inside-step-meta { display: none; }
@@ -1730,6 +1734,18 @@ html[data-theme='dark'] .hero-field-label { text-shadow: 0 1px 8px rgba(14, 16, 
   .interlude-quote { font-size: clamp(30px, 9vw, 40px); }
   .interlude-copy { padding-top: 10vh; }
   .interlude-sub { display: none; }
+}
+
+@media (max-width: 899px) and (orientation: landscape) and (max-height: 560px) {
+  .inside-head { display: none; }
+  .inside-main { flex-direction: row; align-items: center; gap: 20px; padding-top: 10px; }
+  .inside-visual { order: 0; }
+  .inside-copy { order: 1; flex: 1; justify-content: center; }
+  .inside-device { height: min(70svh, 300px); }
+  .inside-steps { min-height: 104px; flex: 0 0 auto; }
+  .inside-title { font-size: 22px; }
+  .inside-text { font-size: 12.5px; line-height: 1.55; }
+  .inside-tabs { margin-top: 10px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
