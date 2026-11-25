@@ -80,7 +80,9 @@ export default function Download() {
             </a>
           </p>
 
-          {!playLive && <p className="download-play-note">{pick(DOWNLOAD.playNote, lang)}</p>}
+          <p className="download-play-note">
+            {pick(playLive ? DOWNLOAD.playLiveNote : DOWNLOAD.playNote, lang)}
+          </p>
 
           <div className="download-specs">
             {DOWNLOAD.specs.map((s) => (

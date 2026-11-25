@@ -19,15 +19,15 @@ export const SITE = {
   apkFallback: 'https://github.com/Solar-CV/AscentApp/releases/download/v0.28.8/ascentroam-v0.28.8-release.apk',
   /**
    * Google Play 入口。status 是唯一开关：
-   *   'closed' = 封测中，按钮只展示不跳转（默认）
-   *   'live'   = 已上架，按钮自动变成商店链接，不需要改组件
+   *   'closed' = 封测中，按钮只展示不跳转
+   *   'live'   = 已上架（当前），按钮自动变成商店链接，不需要改组件
    * 安装身份与 App 的 applicationId 一致（app/build.gradle.kts: com.ascentroam.app）。
    */
   play: {
     packageId: 'com.ascentroam.app',
     store: 'https://play.google.com/store/apps/details?id=com.ascentroam.app',
     testing: 'https://play.google.com/apps/testing/com.ascentroam.app',
-    status: 'closed',
+    status: 'live',
   },
 };
 
@@ -371,6 +371,10 @@ export const DOWNLOAD = {
   playNote: B(
     'Google Play 还在封测阶段，公开链接尚未生效，暂时请用上面的 APK。上架后这个按钮会自己变成商店入口。',
     'The Play listing is still in closed testing, so its public link does not resolve yet — use the APK above for now. Once it ships, this button becomes the store link by itself.'
+  ),
+  playLiveNote: B(
+    'Google Play 版由商店负责安装与更新；没有 Google 服务的设备，用上面的 APK 直接安装。',
+    'The Play build installs and updates through the store; on devices without Google services, use the APK above.'
   ),
   apkNote: B('直连 GitHub Release 附件，无需登录', 'Direct link to the GitHub release asset, no sign-in'),
   apkPending: B('正在解析最新版本…', 'Resolving the latest build…'),
