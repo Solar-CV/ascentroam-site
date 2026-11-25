@@ -10,7 +10,7 @@ export const SITE = {
   privacy: 'privacy.html',
   email: 'support@ascentroam.com',
   version: '0.28.8',
-  size: '41 MB',
+  size: '39 MB',
   /**
    * 当前版本的 APK 直链兜底：浏览器取不到 GitHub API 时，按钮靠它保证永远可点。
    * 由 scripts/sync-release.mjs 在 CI 里每日同步（连同上面的 version / size），
