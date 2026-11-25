@@ -59,7 +59,7 @@ export default function Download() {
               {pick(DOWNLOAD.releases, lang)}
             </a>
 
-            {/* 3 · Google Play：SITE.play.status 切到 'live' 后自动变成可用链接 */}
+            {/* 3 · Google Play：'live' 渲染成商店链接，'closed' 置灰显示封测徽标 */}
             {playLive ? (
               <a className="btn" href={SITE.play.store} target="_blank" rel="noreferrer">
                 {pick(DOWNLOAD.play, lang)}

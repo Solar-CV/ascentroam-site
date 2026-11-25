@@ -1027,7 +1027,7 @@ html[data-theme='dark'] .gal-media img { filter: grayscale(1) contrast(1.05) bri
   color: #f4f4ee;
 }
 
-/* 下载区：三个渠道（直连 APK / Releases / Play 封测占位） */
+/* 下载区：三个渠道（直连 APK / Releases / Google Play） */
 .btn-tag {
   font-size: 9px;
   letter-spacing: 0.06em;
