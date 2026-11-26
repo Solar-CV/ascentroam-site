@@ -42,8 +42,8 @@ if (!version) {
   process.exit(1);
 }
 
-// 与 Download.jsx 的 megabytes() 同一口径：10 MB 以上取整，以下保留一位。
-const mb = apk.size / 1048576;
+// 与 Download.jsx 的 megabytes() 同一口径：十进制 MB（与 App README 一致），10 MB 以上取整，以下保留一位。
+const mb = apk.size / 1e6;
 const size = `${mb >= 10 ? Math.round(mb) : mb.toFixed(1)} MB`;
 
 const VERSION_RE = /(\n\s*version: ')[^']*(')/;
