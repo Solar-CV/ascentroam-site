@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   build: {
     assetsInlineLimit: 2048,
-    rollupOptions: {
+    rolldownOptions: {
       input: {
         main: fileURLToPath(new URL('./index.html', import.meta.url)),
         support: fileURLToPath(new URL('./support.html', import.meta.url)),
