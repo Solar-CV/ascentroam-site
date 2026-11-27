@@ -9,14 +9,15 @@ export const SITE = {
   releaseSource: { owner: 'Solar-CV', repo: 'AscentApp' },
   privacy: 'privacy.html',
   email: 'support@ascentroam.com',
-  version: '0.28.8',
+  /** 静态兜底：浏览器取不到 GitHub API 时，首屏与下载区用这里的版本 / 体积。 */
+  version: '0.29.0',
   size: '41 MB',
   /**
    * 当前版本的 APK 直链兜底：浏览器取不到 GitHub API 时，按钮靠它保证永远可点。
    * 由 scripts/sync-release.mjs 在 CI 里每日同步（连同上面的 version / size），
    * 手动改也可以，改了记得和 App 最新 release 对齐。
    */
-  apkFallback: 'https://github.com/Solar-CV/AscentApp/releases/download/v0.28.8/ascentroam-v0.28.8-release.apk',
+  apkFallback: 'https://github.com/Solar-CV/AscentApp/releases/download/v0.29.0/ascentroam-v0.29.0-release.apk',
   /**
    * Google Play 入口。status 是唯一开关：
    *   'closed' = 封测中，按钮只展示不跳转
@@ -51,7 +52,6 @@ export const HERO = {
   ),
   primary: B('下载 Android 版', 'Download for Android'),
   secondary: B('看看界面', 'See the app'),
-  meta: [B(`v${SITE.version}`, `v${SITE.version}`)],
   coords: '27°59′17″N 86°55′31″E',
   place: B('珠穆朗玛 · 日出', 'Everest · Sunrise'),
   legend: B('照片 → 线场 · 96 列 × 4 档', 'PHOTO → FIELD · 96 × 4'),

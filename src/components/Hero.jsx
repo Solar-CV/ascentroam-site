@@ -1,4 +1,5 @@
 import { useLang } from '../context/LangContext.jsx';
+import { useRelease } from '../context/ReleaseContext.jsx';
 import { HERO, SITE } from '../data/content.js';
 import { IMG } from '../data/images.js';
 import { pick } from '../lib/i18n.js';
@@ -20,8 +21,10 @@ function Accented({ line, accent }) {
 
 export default function Hero() {
   const { lang } = useLang();
+  const release = useRelease();
+  const version = release.version || SITE.version;
   const meta = [
-    HERO.meta[0][lang],
+    `v${version}`,
     'Android 8.0+',
     'arm64',
     lang === 'zh' ? `约 ${SITE.size}` : SITE.size,

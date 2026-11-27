@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { LangContext } from './context/LangContext.jsx';
+import { ReleaseProvider } from './context/ReleaseContext.jsx';
 import { useLanguage } from './hooks/useLanguage.js';
 import { useTheme } from './hooks/useTheme.js';
 import Nav from './components/Nav.jsx';
@@ -45,29 +46,31 @@ export default function App() {
   }, []);
 
   return (
-    <LangContext.Provider value={{ lang, setLang }}>
-      <a className="skip-link" href="#main">
-        {lang === 'zh' ? '跳到主要内容' : 'Skip to content'}
-      </a>
-      <div className="grain" aria-hidden="true" />
-      <Nav theme={theme} onTheme={toggle} />
-      <main id="main" tabIndex={-1}>
-        <Hero />
-        <Marquee />
-        <Method />
-        <Tracks />
-        <Practice />
-        <AppShowcase />
-        <Notes />
-        <Badges />
-        <Interlude />
-        <Gallery />
-        <Languages />
-        <Safety />
-        <Download />
-        <SupportStrip />
-      </main>
-      <Footer />
-    </LangContext.Provider>
+    <ReleaseProvider>
+      <LangContext.Provider value={{ lang, setLang }}>
+        <a className="skip-link" href="#main">
+          {lang === 'zh' ? '跳到主要内容' : 'Skip to content'}
+        </a>
+        <div className="grain" aria-hidden="true" />
+        <Nav theme={theme} onTheme={toggle} />
+        <main id="main" tabIndex={-1}>
+          <Hero />
+          <Marquee />
+          <Method />
+          <Tracks />
+          <Practice />
+          <AppShowcase />
+          <Notes />
+          <Badges />
+          <Interlude />
+          <Gallery />
+          <Languages />
+          <Safety />
+          <Download />
+          <SupportStrip />
+        </main>
+        <Footer />
+      </LangContext.Provider>
+    </ReleaseProvider>
   );
 }

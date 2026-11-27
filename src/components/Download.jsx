@@ -2,7 +2,7 @@ import { useLang } from '../context/LangContext.jsx';
 import { DOWNLOAD, SITE } from '../data/content.js';
 import { IMG } from '../data/images.js';
 import { pick } from '../lib/i18n.js';
-import useLatestRelease from '../hooks/useLatestRelease.js';
+import { useRelease } from '../context/ReleaseContext.jsx';
 import Field from './Field.jsx';
 import { Arrow } from './Icons.jsx';
 
@@ -15,7 +15,7 @@ const megabytes = (bytes) => {
 
 export default function Download() {
   const { lang } = useLang();
-  const release = useLatestRelease(SITE.releaseSource);
+  const release = useRelease();
 
   const version = release.version || SITE.version;
   const size = megabytes(release.size) || SITE.size;
